@@ -1,0 +1,51 @@
+
+<br />
+<br />
+<br />
+<h1>Blog Detail</h1>
+<br />
+<br />
+<br />
+
+<div ng-controller="blogcntrl">
+	<form id="blogform" method="post">
+		<table style="width: 80%" align="center">
+			<tr>
+				<td>Blog Name</td>
+				<td><input type="text" name="blogname" ng-model="blog.blogname" /></td>
+			</tr>
+			<tr>
+				<td>Blog content</td>
+				<td><textarea rows="8" cols="50" ng-model="blog.blogcontent"></textarea></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit"
+					value="Insert" ng-click="insertblog()" /></td>
+			</tr>
+		</table>
+	</form>
+	<br />
+	<br />
+	<br />
+	<table align="center" border="1">
+		<tr>
+			<td>Blog ID</td>
+			<td>Blog Name</td>
+			<td>Blog Content</td>
+			<td>Likes</td>
+			<td>Operation</td>
+		</tr>
+		<tr ng-repeat="blog in blogdata">
+			<td>{{blog.blogid}}</td>
+			<td>{{blog.blogname}}</td>
+			<td>{{blog.blogcontent}}</td>
+			<td>{{blog.likes}}<input type="submit" value="like"
+				ng-click="incrblog(blog.blogid)" /></td>
+			<td><input type="submit" value="Delete"
+				ng-click="deleteblog(blog.blogid)" /> <input type="submit"
+				value="Edit" ng-click="editblog(blog.blogid)" /></td>
+		</tr>
+	</table>
+
+</div>
+

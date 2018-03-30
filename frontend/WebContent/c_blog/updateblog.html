@@ -1,0 +1,23 @@
+<br/><br/><br/>
+<h1>Update Blog Detail</h1>
+<br/><br/><br/>
+
+<div ng-controller="blogcntrl">
+<form id="blogform" method="post">
+<table style="width:80%">
+ 
+  <tr>
+    <td>Blog Name</td>
+    <td><input type="text" name="blogname"  ng-model="blog.blogname"/>{{blog.blogname}}</td>
+  </tr>
+  <tr>
+    <td>Blog content</td>
+    <td><textarea rows="8" cols="50" ng-model="blog.blogcontent"></textarea></td>
+  </tr>
+  <tr>
+  
+    <td colspan="2"><input type="submit" value="Update" ng-click="updateblog()"/></td>
+    </tr>
+</table>
+</form>
+</div>
