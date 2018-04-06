@@ -1,13 +1,16 @@
-var myApp=angular.module("myApp",["ngRoute"]);
+var myApp=angular.module("myApp",['ngRoute']);
 
 myApp.config(function($routeProvider)
 {
 	$routeProvider.when("/",{templateUrl:"template/home.html"})
 	           .when("/home",{templateUrl:"template/home.html"})
 	           .when("/blog",{templateUrl:"c_blog/blog.html"})
-	           .when("/forum",{templateUrl:"template/forum.html"})
+	           .when("/forum",{templateUrl:"c_forum/forum.html"})
 	           .when("/job",{templateUrl:"template/job.html"})
-	           .when("/login",{templateUrl:"template/login.html"})
-	           .when("/register",{templateUrl:"template/register.html"})
+	           .when("/login",{templateUrl:"c_user/login.html"})
+	           .when("/registration",{templateUrl:"c_user/registration.html"})
 	           .when("/updateblog",{templateUrl:"c_blog/updateblog.html"})
+	           .when("/updateforum",{templateUrl:"c_forum/updateforum.html"})
+	           .when("/updateprofile",{templateUrl:"c_user/UpdateProfile.html"})
 });
+

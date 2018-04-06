@@ -1,0 +1,35 @@
+<br />
+<br />
+<br />
+<h1>Forum Detail</h1>
+<br />
+<br />
+<br />
+
+<div ng-controller="forumcntrl">
+	<form id="forumform" method="post">
+		<table style="width: 80%" align="center">
+			<tr>
+				<td>Forum Id</td>
+				<td>{{forum1.forumid}}</td>
+			</tr>
+			<tr>
+				<td>Forum Name</td>
+				<td><input type="text" name="forumname" ng-model="forum1.forumname" /></td>
+			</tr>
+			<tr>
+				<td>Forum content</td>
+				<td><textarea rows="8" cols="50" ng-model="forum1.forumcontent"></textarea></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit"
+					value="Update" ng-click="updateforum(forum1.forumid)" /></td>
+			</tr>
+		</table>
+	</form>
+	<br />
+	<br />
+	<br />
+	
+
+</div>

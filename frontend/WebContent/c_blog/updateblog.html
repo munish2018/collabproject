@@ -7,16 +7,20 @@
 <table style="width:80%">
  
   <tr>
+    <td>Blog ID</td>
+    <td>{{blog1.blogid}}</td>
+  </tr>
+  <tr>
     <td>Blog Name</td>
-    <td><input type="text" name="blogname"  ng-model="blog.blogname"/>{{blog.blogname}}</td>
+    <td><input type="text" name="blogname"  ng-model="blog1.blogname"/></td>
   </tr>
   <tr>
     <td>Blog content</td>
-    <td><textarea rows="8" cols="50" ng-model="blog.blogcontent"></textarea></td>
+    <td><textarea rows="8" cols="50" ng-model="blog1.blogcontent"></textarea></td>
   </tr>
   <tr>
   
-    <td colspan="2"><input type="submit" value="Update" ng-click="updateblog()"/></td>
+    <td colspan="2"><input type="submit" value="Update" ng-click="updateblog(blog1.blogid)"/></td>
     </tr>
 </table>
 </form>

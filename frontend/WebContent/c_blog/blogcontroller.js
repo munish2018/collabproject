@@ -1,5 +1,5 @@
 console.log("Into the Controller");
-myApp.controller('blogcntrl', function($scope, $http, $location)
+myApp.controller('blogcntrl', function($scope, $http, $location,$rootScope)
 	{
 	console.log("Inside  the Controller function");
 	$scope.blog = {
@@ -24,10 +24,10 @@ myApp.controller('blogcntrl', function($scope, $http, $location)
 	      });			
 	};
 	
-	$scope.updateblog=function()
+	$scope.updateblog=function(blogId)
 	{
 		console.log("Enter into updateBlog Method");
-		$http.put('http://localhost:8081/middleend/updateblog/'+blogId,$scope.blog)
+		$http.put('http://localhost:8081/middleend/updateblog/'+blogId,$rootScope.blog1)
 		.then(fetchAllBlog(),function(response)
      	  {
 			console.log('Status Text:'+response.statusText);
@@ -43,6 +43,7 @@ myApp.controller('blogcntrl', function($scope, $http, $location)
 		{
 			console.log(response.data);
 			$scope.blog=response.data;
+			$rootScope.blog1=response.data;
 			console.log('Status Text:'+response.statusText);
 			$location.path("/updateblog");
 		});

@@ -27,6 +27,7 @@ public class BlogComment {
 	private Date commentdate;
 	@Column(length=50)
 	private String username;
+	
 	public int getBlogcommentid() {
 		return blogcommentid;
 	}

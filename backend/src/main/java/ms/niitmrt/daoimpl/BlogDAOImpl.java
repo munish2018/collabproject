@@ -163,6 +163,7 @@ public class BlogDAOImpl implements BlogDAO {
 		}
 	}
 
+	@Transactional
 	@Override
 	public boolean deleteBlogComment(BlogComment blogComment) {
 		try
@@ -186,8 +187,4 @@ public class BlogDAOImpl implements BlogDAO {
 		return blogcomments;
 	}
 
-	
-
-	
-	
 }

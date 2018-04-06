@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Register</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/registration.js"></script>
+
+</head>
+<body>
+<br/><br/><br/>
+<CENTER><h1> New Registration Form</h1></CENTER>
+<br/><br/><br/>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<form method="post" >
+					<table style="width: 80%" align="center">
+						<tr>
+							<td>E Mail </td>
+							<td><input type="email" name="email" Class="form-control" required="required"/></td>
+						</tr>
+						<tr>
+							<td>Password </td>
+							<td><input type=password name="password"
+								Class="form-control" required="required" /></td>
+						</tr>
+						<tr>
+							<td>User Name</td>
+							<td><input type=text name="firstName" Class="form-control" required="required"/></td>
+						</tr>
+						<tr>
+							<td>Contact Number</td>
+							<td><input type=number name="contactNumber" Class="form-control"  pattern="[0-9]{10}" required="required"/></td>
+						</tr>
+						<tr>
+							<td>Address</td>
+							<td><textarea rows="3" cols=""name="shippingaddress" Class="form-control" required="required"></textarea>
+						</tr>
+						<tr>
+							<td><input type="submit" value="Submit"
+								class="btn btn-sm btn-primary"
+								onClick="alert('Data Saved Sucessfully');" /></td>
+								<td><input type="reset" value="Cancel" /></td>
+						</tr>
+					</table>
+				</form>
+				<br/><br/><br/><br/>
+				
+				<!-- ends register form -->
+
+				<script type="text/javascript">
+					document
+							.getElementById("field_terms")
+							.setCustomValidity(
+									"Please indicate that you accept the Terms and Conditions");
+				</script>
+			</div>
+			<!-- ends col-6 -->
+		</div>
+	</div>
+	</body>
+</html>

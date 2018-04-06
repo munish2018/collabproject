@@ -1,0 +1,48 @@
+
+<br />
+<br />
+<br />
+<h1>Forum Detail</h1>
+<br />
+<br />
+<br />
+
+<div ng-controller="forumcntrl">
+	<form id="forumform" method="post">
+		<table style="width: 80%" align="center">
+			<tr>
+				<td>Forum Name</td>
+				<td><input type="text" name="forumname" ng-model="forum.forumname" /></td>
+			</tr>
+			<tr>
+				<td>Forum content</td>
+				<td><textarea rows="8" cols="50" ng-model="forum.forumcontent"></textarea></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit"
+					value="Insert" ng-click="insertforum()" /></td>
+			</tr>
+		</table>
+	</form>
+	<br />
+	<br />
+	<br />
+	<table align="center" border="1">
+		<tr>
+			<td>forum ID</td>
+			<td>forum Name</td>
+			<td>forum Content</td>
+			<td>Operation</td>
+		</tr>
+		<tr ng-repeat="forum in forumdata">
+			<td>{{forum.forumid}}</td>
+			<td>{{forum.forumname}}</td>
+			<td>{{forum.forumcontent}}</td>
+			<td><input type="submit" value="Delete"
+				ng-click="deleteforum(forum.forumid)" /> <input type="submit"
+				value="Edit" ng-click="editforum(forum.forumid)" /></td>
+		</tr>
+	</table>
+
+</div>
+

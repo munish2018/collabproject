@@ -16,6 +16,12 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import ms.niitmrt.model.Blog;
 import ms.niitmrt.model.BlogComment;
+import ms.niitmrt.model.Forum;
+import ms.niitmrt.model.ForumComment;
+import ms.niitmrt.model.Job;
+import ms.niitmrt.model.JobAppl;
+import ms.niitmrt.model.ProfilePicture;
+import ms.niitmrt.model.UserDetail;
 
 @Configuration
 @ComponentScan("ms.niitmrt.*")
@@ -52,6 +58,12 @@ public class hiberconfig {
 		sessionBuilder.addProperties(getHibernateProperties());
 		sessionBuilder.addAnnotatedClass(Blog.class);
 		sessionBuilder.addAnnotatedClass(BlogComment.class);
+		sessionBuilder.addAnnotatedClass(UserDetail.class);
+		sessionBuilder.addAnnotatedClass(Forum.class);
+		sessionBuilder.addAnnotatedClass(ForumComment.class);
+		sessionBuilder.addAnnotatedClass(Job.class);
+		sessionBuilder.addAnnotatedClass(JobAppl.class);
+		sessionBuilder.addAnnotatedClass(ProfilePicture.class);
 		System.out.println(" sess factory ends");
 		return sessionBuilder.buildSessionFactory();
 	}

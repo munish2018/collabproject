@@ -4,29 +4,17 @@
 <title>Bootstrap Example</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
-	
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+
 <script src="RouteConfig.js"></script>
 <script src="c_blog/blogcontroller.js"></script>
-<style>
-.footer {
-	position: fixed;
-	left: 0;
-	bottom: 0;
-	width: 100%;
-	background-color: cyan;
-	color: blue;
-	text-align: center;
-}
-</style>
-
+<script src="c_user/usercontroller.js"></script>
+<script src="c_forum/forumcontroller.js"></script>
+<link rel="stylesheet" href="css/footer.css">
 </head>
 <body style="height: 1500px" ng-app="myApp">
 
@@ -40,8 +28,13 @@
 				<li><a href="#/blog">Blog</a></li>
 				<li><a href="#/forum">Forum</a></li>
 				<li><a href="#/job">Job</a></li>
-				<li><a href="#/login">Login</a></li>
-				<li><a href="#/register">Register</a></li>
+				<li><a href="#/aboutus">About Us</a></li>
+				<li><a href="#/contactus">Contact Us</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+				<a href="#/registration"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+				<li><a href="#/login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
 			</ul>
 		</div>
 	</nav>
