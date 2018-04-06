@@ -1,0 +1,64 @@
+
+<br />
+<br />
+<br />
+<h1>Update Job Detail</h1>
+<br />
+<br />
+<br />
+
+<div ng-controller="jobcntrl">
+	<form id="jobform" method="post">
+		<table style="width: 80%" align="center">
+			<tr>
+				<td>Job Id</td>
+				<td>{{job1.jobid}}</td>
+			</tr>
+			<tr>
+				<td>Job Title</td>
+				<td><input type="text" name="job_title" ng-model="job1.job_title" /></td>
+			</tr>
+			<tr>
+				<td>Job Description</td>
+				<td><input type="text" name="job_description" ng-model="job1.job_description" /></td>
+			</tr>
+			<tr>
+				<td>Company</td>
+				<td><input type="text" name="company_name" ng-model="job1.company_name" /></td>
+			</tr>
+			<tr>
+				<td>Location</td>
+				<td><input type="text" name="location" ng-model="job1.location" /></td>
+			</tr>
+			<tr>
+				<td>Contact Number</td>
+				<td><input type="text" name="contact" ng-model="job1.contact" /></td>
+			</tr>
+			<tr>
+				<td>Skills Required</td>
+				<td><input type="text" name="skills_required" ng-model="job1.skills_required" /></td>
+			</tr>
+			<tr>
+				<td>Vacancies</td>
+				<td><input type="text" name="vacancies" ng-model="job1.vacancies" /></td>
+			</tr>
+			<tr>
+				<td>Salary</td>
+				<td><input type="text" name="salary" ng-model="job1.salary" /></td>
+			</tr>
+			<tr>
+				<td>Experience Required</td>
+				<td><input type="text" name="experience" ng-model="job1.experience" /></td>
+			</tr>
+			<tr>
+			
+				<td colspan="2" align="center"><input type="submit"
+					value="Update" ng-click="updatejob(job1.jobid)" /></td>
+			</tr>
+		</table>
+	</form>
+	<br />
+	<br />
+	<br />
+	</div>
+

@@ -1,0 +1,78 @@
+
+<br />
+<br />
+<br />
+<h1>Job Detail</h1>
+<br />
+<br />
+<br />
+
+<div ng-controller="jobcntrl">
+	<form id="jobform" method="post">
+		<table style="width: 80%" align="center">
+			<tr>
+				<td>Job Title</td>
+				<td><input type="text" name="job_title" ng-model="job.job_title" /></td>
+			</tr>
+			<tr>
+				<td>Job Description</td>
+				<td><input type="text" name="job_description" ng-model="job.job_description" /></td>
+			</tr>
+			<tr>
+				<td>Company</td>
+				<td><input type="text" name="company_name" ng-model="job.company_name" /></td>
+			</tr>
+			<tr>
+				<td>Location</td>
+				<td><input type="text" name="location" ng-model="job.location" /></td>
+			</tr>
+			<tr>
+				<td>Contact Number</td>
+				<td><input type="text" name="contact" ng-model="job.contact" /></td>
+			</tr>
+			<tr>
+				<td>Skills Required</td>
+				<td><input type="text" name="skills_required" ng-model="job.skills_required" /></td>
+			</tr>
+			<tr>
+				<td>Vacancies</td>
+				<td><input type="text" name="vacancies" ng-model="job.vacancies" /></td>
+			</tr>
+			<tr>
+				<td>Salary</td>
+				<td><input type="text" name="salary" ng-model="job.salary" /></td>
+			</tr>
+			<tr>
+				<td>Experience Required</td>
+				<td><input type="text" name="experience" ng-model="job.experience" /></td>
+			</tr>
+			<tr>
+			
+				<td colspan="2" align="center"><input type="submit"
+					value="Insert" ng-click="insertjob()" /></td>
+			</tr>
+		</table>
+	</form>
+	<br />
+	<br />
+	<br />
+	<table align="center" border="1">
+		<tr>
+			<td>Job ID</td>
+			<td>Job Name</td>
+			<td>Job Description</td>
+			<td>Company Name</td>
+			<td>Operation</td>
+		</tr>
+		<tr ng-repeat="job in jobdata">
+			<td>{{job.jobid}}</td>
+			<td>{{job.job_title}}</td>
+			<td>{{job.job_description}}</td>
+			<td>{{job.company_name}}</td>
+			<td><input type="submit" value="Delete"	ng-click="deletejob(job.jobid)" /> 
+				<input type="submit" value="Edit" ng-click="editjob(job.jobid)" /></td>
+		</tr>
+	</table>
+
+</div>
+

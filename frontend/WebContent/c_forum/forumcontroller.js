@@ -56,7 +56,7 @@ myApp.controller('forumcntrl', function($scope, $http, $location,$rootScope)
 		.then(function(response)
 		{
 			console.log(response.data);
-			 $scope.blog=response.data;
+			 $scope.forum=response.data;
 			console.log('Status Text:'+response.statusText);
 			$location.path("/forum");
 		});
