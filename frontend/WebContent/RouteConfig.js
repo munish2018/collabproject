@@ -13,5 +13,8 @@ myApp.config(function($routeProvider)
 	           .when("/updateforum",{templateUrl:"c_forum/updateforum.html"})
 	           .when("/updatejob",{templateUrl:"c_job/updatejob.html"})
 	           .when("/updateprofile",{templateUrl:"c_user/UpdateProfile.html"})
+	           .when("/blogcomment",{templateUrl:"c_blog/blogcomment.html"})
+	           .when("/updateblogcomment",{templateUrl:"c_blog/updateblogcomment.html"})
+	           .when("/userhome",{templateUrl:"c_user/userhome.html"})
 });
 

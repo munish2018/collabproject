@@ -17,6 +17,7 @@ public interface BlogDAO {
 	public boolean incrementBlog(Blog blog);
 	
 	public boolean addBlogComment(BlogComment blogComment);
+	public boolean updateBlogComment(BlogComment blogComment);
 	public boolean deleteBlogComment(BlogComment blogComment);
 	public BlogComment  getBlogComment(int blogcommentid);
 	public List<BlogComment>  listBlogComments(int blogid);

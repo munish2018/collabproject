@@ -1,0 +1,33 @@
+<br />
+<br />
+<br />
+<h1>Update Blog Comment Detail</h1>
+<br />
+<br />
+<br />
+
+<div ng-controller="blogcommcntrl">
+	<form id="blogform" method="post">
+		<table style="width: 80%" align="center">
+		
+			<tr>
+				<td>Blog Id</td>
+				<td>{{blog1.blogid}}</td>
+			</tr>
+			<tr>
+				<td>Blog Comment Id</td>
+				<td>{{blogcomm1.blogcommentid}}</td>
+			</tr>
+			<tr>
+				<td>Blog Comment </td>
+				<td><textarea rows="8" cols="50" ng-model="blogcomm.blogcommenttext"></textarea></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit"
+					value="Insert" ng-click="updateblogcomm(blogcomm1.blogcommentid)" /></td>
+			</tr>
+		</table>
+	</form>
+	<br />
+	<br />
+	<br />

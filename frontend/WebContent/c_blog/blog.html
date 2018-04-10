@@ -41,9 +41,10 @@
 			<td>{{blog.blogcontent}}</td>
 			<td>{{blog.likes}}<input type="submit" value="like"
 				ng-click="incrblog(blog.blogid)" /></td>
-			<td><input type="submit" value="Delete"
-				ng-click="deleteblog(blog.blogid)" /> <input type="submit"
-				value="Edit" ng-click="editblog(blog.blogid)" /></td>
+			<td><input type="submit" value="Delete"	ng-click="deleteblog(blog.blogid)" /> 
+				<input type="submit" value="Edit" ng-click="editblog(blog.blogid)" />
+				<input type="submit" value="Display Comments" ng-click="displaycomment(blog.blogid)" />
+				</td>
 		</tr>
 	</table>
 

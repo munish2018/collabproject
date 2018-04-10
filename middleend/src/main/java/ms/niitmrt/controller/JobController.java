@@ -47,6 +47,15 @@ public class JobController {
 					
 					tempjob.setCompany_name(job.getCompany_name());
 					tempjob.setLocation(job.getLocation());	
+					tempjob.setContact(job.getContact());
+					tempjob.setExperience(job.getExperience());
+					tempjob.setJob_description(job.getJob_description());
+					tempjob.setSalary(job.getSalary());
+					tempjob.setSkills_required(job.getSkills_required());
+					tempjob.setVacancies(job.getVacancies());
+					tempjob.setJob_title(job.getJob_title());
+					
+					
 					jobdao.updateJob(tempjob);
 					return new ResponseEntity<String>("Update job Success", HttpStatus.OK);
 				}

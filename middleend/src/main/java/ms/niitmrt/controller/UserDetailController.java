@@ -5,10 +5,10 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import ms.niitmrt.dao.UserDetailDAO;
@@ -32,10 +32,10 @@ public class UserDetailController {
 				}
 			}
 			
-			@PostMapping(value = "/login")
-			public ResponseEntity<UserDetail> checklogin(@RequestBody UserDetail userdetail,HttpSession session) {
-				
-				if (userdetailDAO.checklogin(userdetail))
+			@PutMapping(value="/login")
+			public ResponseEntity<UserDetail> checklogindetail(@RequestBody UserDetail userdetail,HttpSession session) {
+				System.out.println("  login():"+userdetail.getLoginname());
+		    	if (userdetailDAO.checklogin(userdetail))
 				{
 					UserDetail tempuser=(UserDetail)userdetailDAO.getuser(userdetail.getLoginname());
 					userdetailDAO.updateonlinestatus("Y", tempuser);
@@ -46,12 +46,13 @@ public class UserDetailController {
 					return new ResponseEntity<UserDetail>(tempuser,HttpStatus.OK);
 				} 
 				else {
+					System.out.println(" Error in Login");
 					return new ResponseEntity<UserDetail>(userdetail, HttpStatus.NOT_FOUND);
 					
 				}
 			}
 			
-			@RequestMapping(value="/logout",method=RequestMethod.GET)
+			@GetMapping(value="/logout")
 		    public ResponseEntity<?> logout(HttpSession session){
 
 		    	if(session.getAttribute("username")==null){

@@ -153,19 +153,33 @@ public class BlogController {
 		
 				// ---------------- Add BlogComments -----------------------------------
 
-				@PostMapping(value = "/addblogcomment")
-				public ResponseEntity<String> addblogcomment(@RequestBody BlogComment blogcomment) {
+				@PostMapping(value = "/addblogcomment/{blogid}")
+				public ResponseEntity<String> addblogcomment(@RequestBody BlogComment blogcomment,@PathVariable("blogid") int blogid) {
 					blogcomment.setCommentdate(new Date());
 					//Blog blog = blogDAO.getBlog(1);
 					//String username = blog.getUsername();
 					//int blogid = blog.getBlogid();
 					//blogcomment.setBlogid(blogid);
 					blogcomment.setUsername("munish");
-					blogcomment.setBlogid(1);
+					blogcomment.setBlogid(blogid);
 					if (blogDAO.addBlogComment(blogcomment)) {
 						return new ResponseEntity<String>("BlogComment Added- Success", HttpStatus.OK);
 					} else {
 						return new ResponseEntity<String>("BlodComment insert failed", HttpStatus.NOT_FOUND);
+					}
+				}
+				
+				// ---------------- Update BlogComments -----------------------------------
+
+				@PutMapping(value = "/updblogcomment/{blogid}/{commentid}")
+				public ResponseEntity<String> updateblogcomment(@RequestBody BlogComment blogcomment,@PathVariable("blogid") int blogid,@PathVariable("commentid") int commentid) {
+					blogcomment.setCommentdate(new Date());
+					blogcomment.setUsername("munish");
+									
+					if (blogDAO.updateBlogComment(blogcomment)) {
+						return new ResponseEntity<String>("BlogComment Updated- Success", HttpStatus.OK);
+					} else {
+						return new ResponseEntity<String>("BlodComment Updation failed", HttpStatus.NOT_FOUND);
 					}
 				}
 				
@@ -197,7 +211,7 @@ public class BlogController {
 				
 				// -------------------------Delete BlogComment	 ---------------------
 
-				@DeleteMapping(value = "/deleteblogcomment/{commentid}")
+				@PostMapping(value = "/deleteblogcomment/{commentid}")
 				public ResponseEntity<String> deleteblogcomment(@PathVariable("commentid") int commentid) {
 					System.out.println("Delete blogComment with comment id: " + commentid);
 					BlogComment blogcomment = blogDAO.getBlogComment(commentid);

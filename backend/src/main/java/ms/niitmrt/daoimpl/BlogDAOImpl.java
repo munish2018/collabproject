@@ -164,7 +164,19 @@ public class BlogDAOImpl implements BlogDAO {
 			return false;
 		}
 	}
-
+	@Transactional
+	@Override
+	public boolean updateBlogComment(BlogComment blogComment) {
+		try
+		{
+			sessionFactory.getCurrentSession().update(blogComment);
+			return true;
+		}
+		catch(Exception e)
+		{
+			return false;
+		}
+	}
 	@Transactional
 	@Override
 	public boolean deleteBlogComment(BlogComment blogComment) {
