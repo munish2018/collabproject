@@ -16,5 +16,6 @@ myApp.config(function($routeProvider)
 	           .when("/blogcomment",{templateUrl:"c_blog/blogcomment.html"})
 	           .when("/updateblogcomment",{templateUrl:"c_blog/updateblogcomment.html"})
 	           .when("/userhome",{templateUrl:"c_user/userhome.html"})
+	            .when("/chat",{templateUrl:"c_chat/chat.html"})
 });
 

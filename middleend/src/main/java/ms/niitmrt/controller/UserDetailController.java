@@ -32,7 +32,7 @@ public class UserDetailController {
 				}
 			}
 			
-			@PutMapping(value="/login")
+			@PostMapping(value="/login")
 			public ResponseEntity<UserDetail> checklogindetail(@RequestBody UserDetail userdetail,HttpSession session) {
 				System.out.println("  login():"+userdetail.getLoginname());
 		    	if (userdetailDAO.checklogin(userdetail))

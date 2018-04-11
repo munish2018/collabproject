@@ -9,6 +9,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.3/lodash.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.1/sockjs.js"></script>
 
 <script src="RouteConfig.js"></script>
 <script src="c_blog/blogcontroller.js"></script>
@@ -16,6 +19,8 @@
 <script src="c_user/usercontroller.js"></script>
 <script src="c_forum/forumcontroller.js"></script>
 <script src="c_job/jobcontroller.js"></script>
+<script src="c_chat/chatcontroller.js"></script>
+<script src="c_chat/chatservice.js"></script>
 <link rel="stylesheet" href="css/footer.css">
 </head>
 <body style="height: 1500px" ng-app="myApp">
@@ -27,17 +32,23 @@
 			</div>
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="#/home">Home</a></li>
-				<li><a href="#/blog">Blog</a></li>
-				<li><a href="#/forum">Forum</a></li>
-				<li><a href="#/job">Job</a></li>
 				<li><a href="#/aboutus">About Us</a></li>
 				<li><a href="#/contactus">Contact Us</a></li>
+				<li ng-hide="user1==undefined"><a href="#/blog">Blog</a></li>
+				<li ng-hide="user1==undefined"><a href="#/forum">Forum</a></li>
+				<li ng-hide="user1==undefined"><a href="#/job">Job</a></li>
+				<li ng-hide="user1==undefined"><a href="#/chat">Chat</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li>
 				<a href="#/registration">Sign Up</a></li>
-				<li><a href="#/login">Login</a></li>
+				<li ng-hide="user1.role=='roleuser'||user1.role=='roleadmin'"><a href="#/login">Login</a></li>
 			</ul>
+			<div class="nav navbar-nav navbar-right" ng-hide="user1==undefined">
+	<ul class="nav navbar-nav"><li><font color="white">Welcome {{user1.username}} </font></li>
+					<form ng-controller="usercntrl"><input type="submit" value="LogOut" ng-click="logout()" class="btn btn-info"></form> 
+					</ul>
+					</div>
 		</div>
 	</nav>
 

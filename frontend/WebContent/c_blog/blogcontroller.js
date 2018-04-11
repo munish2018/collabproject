@@ -17,6 +17,7 @@ myApp.controller('blogcntrl', function($scope, $http, $location,$rootScope)
 	$scope.insertblog=function()
 	{
 		console.log("Enter into insertBlog Method");
+		console.log("blog name"+$scope.blog.blogname);
 		$http.post('http://localhost:8081/middleend/addblog',$scope.blog)
 		.then(fetchAllBlog(),function(response)
      	  {
