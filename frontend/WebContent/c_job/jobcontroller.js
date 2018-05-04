@@ -21,7 +21,7 @@ myApp.controller('jobcntrl', function($scope, $http, $location,$rootScope)
 	
 	$scope.insertjob=function()
 	{
-		console.log("Enter into insertforum Method");
+		console.log("Enter into insertjob Method");
 		console.log('insert data:'+$scope.job);
 		$http.post('http://localhost:8081/middleend/addjob',$scope.job)
 		.then(fetchAllJob(),function(response)

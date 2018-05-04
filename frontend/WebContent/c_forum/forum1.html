@@ -1,0 +1,30 @@
+<br />
+<br />
+<br />
+<h1>All Forum's </h1>
+<br />
+<a href="#/newforum"><img src="images/newadd.png" style="height:80px;width:80px;padding-right:20px" /></a>
+<br />
+
+<div ng-controller="forumcntrl">
+<div class="list-group" >
+    <div href="#" class="list-group-item" ng-repeat="forum in forumdata">
+      <h2 class="list-group-item-heading" style="color:#0000A0"> {{forum.forumname}}</h2>
+	  <br/>
+	  <h3 class="list-group-item-heading" style="color:#0000C0">Published by : {{user1.username}}, Date :  {{forum.createdate}}  
+	  </h3>
+	<hr/>
+	{{forum.forumcontent}}
+	<hr/>
+	<br/><br/><br/>	
+	<img src="images/delete.jpg" ng-click="deleteforum(forum.forumid)" style="height:40px;width:40px;padding-right:20px"/> 
+	<img src="images/update.jpg" ng-click="editforum(forum.forumid)" style="height:40px;width:40px;padding-right:20px" />
+	<img src="images/display.png" ng-click="displaycomment(forum.forumid)" style="height:40px;width:40px;padding-right:20px"/>
+	<hr/>
+	</div>
+	</div>
+</div>
+
+<script src="c_forum/forumcontroller.js"></script>
+<script src="c_forum/forumcommentcontroller.js"></script>
+

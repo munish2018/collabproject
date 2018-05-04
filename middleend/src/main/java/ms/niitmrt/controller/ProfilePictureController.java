@@ -26,7 +26,7 @@ public class ProfilePictureController {
 	public ResponseEntity<?> uploadPicture(@RequestParam(value="file")CommonsMultipartFile fileupload,HttpSession session)
 	{
 	
-		String username=(String)session.getAttribute("username");
+		String username=(String)session.getAttribute("loginname");
 		
 		if(username==null) 
 		{
@@ -43,11 +43,15 @@ public class ProfilePictureController {
 		}
 	}
 	
-	@RequestMapping(value="/getImage/{loginname}")
-	public @ResponseBody byte[] getProfilePic(@PathVariable("loginame") String loginname)
+	@RequestMapping(value="/getImage")
+	public @ResponseBody byte[] getProfilePic(HttpSession session)
 	{
-		
+		String loginname=(String)session.getAttribute("loginname");
+		System.out.println("profile  getimAGE 11 "+loginname);
+		if(loginname==null)
+				return null;
 		ProfilePicture profilePicture=profilepictureDAO.get(loginname);
+		System.out.println("profile  getimAGE 222 "+loginname);
 		
 		if(profilePicture==null)
 		{

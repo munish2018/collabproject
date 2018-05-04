@@ -18,6 +18,7 @@ import ms.niitmrt.model.Blog;
 import ms.niitmrt.model.BlogComment;
 import ms.niitmrt.model.Forum;
 import ms.niitmrt.model.ForumComment;
+import ms.niitmrt.model.Friend;
 import ms.niitmrt.model.Job;
 import ms.niitmrt.model.JobAppl;
 import ms.niitmrt.model.ProfilePicture;
@@ -64,6 +65,7 @@ public class hiberconfig {
 		sessionBuilder.addAnnotatedClass(Job.class);
 		sessionBuilder.addAnnotatedClass(JobAppl.class);
 		sessionBuilder.addAnnotatedClass(ProfilePicture.class);
+		sessionBuilder.addAnnotatedClass(Friend.class);
 		System.out.println(" sess factory ends");
 		return sessionBuilder.buildSessionFactory();
 	}

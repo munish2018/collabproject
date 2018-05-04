@@ -1,0 +1,47 @@
+
+<br />
+<br />
+<h1>Forum Comment Detail</h1>
+<br />
+<br />
+<div ng-controller="forumcommcntrl">
+	<div class="list-group" >
+    <div href="#" class="list-group-item" ng-repeat="forumcomm in forumcommdata">
+      <h2 class="list-group-item-heading" style="color:#0000A0"> {{forum.forumname}}</h2>
+	  <br/>
+	  <h3 class="list-group-item-heading" style="color:#0000C0">Published by : {{user1.username}}, Date :  {{forum1.createdate}}  
+	  </h3>
+	<hr/>
+	{{forumcomm.forumcommenttext}}
+	<hr/>
+	<br/><br/><br/>	
+	<hr/>
+	</div>
+	</div>
+<br />
+	<center><h2> New Forum Comment </h2></center>
+	<br/>
+<form id="forumcommform" method="post">
+		<table style="width: 80%" align="center">
+			<tr>
+				<td>Forum Name</td>
+				<td><input type="text" name="forumname" ng-model="forum1.forumname" /></td>
+			</tr>
+			<tr>
+				<td>Forum Comment </td>
+				<td><textarea rows="8" cols="50" ng-model="forumcomm.forumcommenttext"></textarea></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit"
+					value="Insert" ng-click="insertforumcomm()" /></td>
+			</tr>
+		</table>
+</form>
+<br />
+<br />
+<br />
+<br />
+</div>
+
+<script src="c_forum/forumcontroller.js"></script>
+<script src="c_forum/forumcommentcontroller.js"></script>

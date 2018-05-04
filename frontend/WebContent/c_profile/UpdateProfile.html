@@ -1,0 +1,55 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="js/registration.js"></script>
+<script src="c_user/usercontroller.js"></script>
+<br />
+<br />
+<br />
+<CENTER>
+	<h1>Profile Updation Form</h1>
+</CENTER>
+<br />
+<br />
+<br />
+
+<div class="container-fluid" ng-controller="usercntrl">
+	<div class="row">
+		<div class="col-md-12">
+			<form role="form" enctype="multipart/form-data" method="post"
+				action="http://localhost:8081/middleend/doUpload">
+				<table style="width: 80%" align="center">
+					<tr>
+						<td>E Mail</td>
+						<td><input type="text"  name="loginname" ng-model="user1.loginname"/></td>
+					</tr>
+					<tr>
+						<td>Password</td>
+						<td><input type=password name="password" ng-model="user1.password" /></td>
+					</tr>
+					<tr>
+						<td>User Name</td>
+						<td><input type=text name="username" ng-model="user1.username" /></td>
+					</tr>
+					<tr>
+						<td>Contact Number</td>
+						<td><input type=text name="mobileno" ng-model="user1.mobileno"  /></td>
+					</tr>
+					<tr>
+						<td>Address</td>
+						<td><textarea rows="3" cols="" name="address"	ng-model="user1.address"></textarea>
+					</tr>
+					<tr>
+						<td>Profile Picture&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id=img1 src="http://localhost:8081/middleend/getImage" style="height:80px;width:100px" /></td>
+						<td><input type="file" placeholder="select picture"
+							name="file" class="form-control" /></td>
+					</tr>
+
+					<tr>
+						<td colspan="2"><button type="submit" class="btn btn-primary"
+								value="Upload">Submit</button></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+</div>
+

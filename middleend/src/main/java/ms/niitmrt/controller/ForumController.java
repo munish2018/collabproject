@@ -3,6 +3,8 @@ package ms.niitmrt.controller;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,10 +29,11 @@ ForumController {
 	// ---------------- Add forum -----------------------------------
 
 			@PostMapping(value = "/addforum")
-			public ResponseEntity<String> addforum(@RequestBody Forum forum) {
+			public ResponseEntity<String> addforum(@RequestBody Forum forum,HttpSession session) {
 				forum.setCreatedate(new java.util.Date());
 				forum.setStatus("A");
-				forum.setUsername("munish");
+				String loginname=(String)session.getAttribute("username");
+				forum.setUsername(loginname);
 				
 				
 				if (forumdao.addForum(forum)) {
@@ -43,8 +46,9 @@ ForumController {
 			// -----------------list forums ---------------------------------
 
 			@GetMapping(value = "/listforums")
-			public ResponseEntity<List<Forum>> listforum() {
-				List<Forum> listforums = forumdao.listForum("munish");
+			public ResponseEntity<List<Forum>> listforum(HttpSession session) {
+				String loginname=(String)session.getAttribute("username");
+				List<Forum> listforums = forumdao.listForum(loginname);
 				if (listforums.size() != 0) {
 					return new ResponseEntity<List<Forum>>(listforums, HttpStatus.OK);
 				} else {
@@ -135,11 +139,12 @@ ForumController {
 			
 						// ---------------- Add forumComments -----------------------------------
 
-						@PostMapping(value = "/addforumcomment")
-						public ResponseEntity<String> addforumcomment(@RequestBody ForumComment forumcomment) {
+						@PostMapping(value = "/addforumcomment/{forumid}")
+						public ResponseEntity<String> addforumcomment(@PathVariable("forumid") int forumid,@RequestBody ForumComment forumcomment,HttpSession session) {
 							forumcomment.setCommentdate(new Date());
-							forumcomment.setUsername("munish");
-							forumcomment.setForumid(1);
+							String loginname=(String)session.getAttribute("username");
+							forumcomment.setUsername(loginname);
+							forumcomment.setForumid(forumid);
 												
 							if (forumdao.addForumComment(forumcomment)) {
 								return new ResponseEntity<String>("forumComment Added- Success", HttpStatus.OK);

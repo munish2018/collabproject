@@ -25,9 +25,14 @@ public class UserDetailController {
 			public ResponseEntity<String> adduser(@RequestBody UserDetail userdetail) {
 				userdetail.setRole("roleuser");
 				userdetail.setIsonline("N");					
+				System.out.println("INSIDE ADDUSER :USERNAME"+ userdetail.getUsername()); 
 				if (userdetailDAO.registeruser(userdetail)) {
+					System.out.println("user detail saved successfully ");
+					
 					return new ResponseEntity<String>("User Detail  Added- Success", HttpStatus.OK);
+					
 				} else {
+					System.out.println("user detail saved fAILED ");
 					return new ResponseEntity<String>("User Detail  insert failed", HttpStatus.NOT_FOUND);
 				}
 			}
@@ -39,7 +44,8 @@ public class UserDetailController {
 				{
 					UserDetail tempuser=(UserDetail)userdetailDAO.getuser(userdetail.getLoginname());
 					userdetailDAO.updateonlinestatus("Y", tempuser);
-					session.setAttribute("username", tempuser.getLoginname());
+					session.setAttribute("loginname", tempuser.getLoginname());
+					session.setAttribute("username", tempuser.getUsername());
 			    	session.setAttribute("role", tempuser.getRole());
 			    	System.out.println(" inside login():"+tempuser.getLoginname());
 			    	System.out.println(" inside login():"+tempuser.getRole());
@@ -55,15 +61,21 @@ public class UserDetailController {
 			@GetMapping(value="/logout")
 		    public ResponseEntity<?> logout(HttpSession session){
 
-		    	if(session.getAttribute("username")==null){
+				System.out.println("Logout function");
+				
+				
+		    	if(session.getAttribute("loginname")==null){
 		    		return new ResponseEntity<Void>(HttpStatus.UNAUTHORIZED);
 		    	}
 
-		    	String username=(String)session.getAttribute("username");
-
-		    	UserDetail userDetails=userdetailDAO.getuser(username);
-				userdetailDAO.updateonlinestatus("Y",userDetails);
+		    	String loginname=(String)session.getAttribute("loginname");
+		    	System.out.println("Logout function"+loginname);
+		    	UserDetail tempuser=(UserDetail)userdetailDAO.getuser(loginname);
+				userdetailDAO.updateonlinestatus("N", tempuser);
+		    			    	
 		    	session.removeAttribute("username");
+		    	session.removeAttribute("loginname");
+				session.removeAttribute("role");
 		    	session.invalidate();
 		    	return new ResponseEntity<Void>(HttpStatus.OK);
 

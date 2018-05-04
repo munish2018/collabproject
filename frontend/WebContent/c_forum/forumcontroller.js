@@ -31,7 +31,7 @@ myApp.controller('forumcntrl', function($scope, $http, $location,$rootScope)
 		.then(fetchAllForum(),function(response)
      	  {
 			console.log('Status Text:'+response.statusText);
-			$location.path("/forum");
+			$location.path("/forum1");
 	      });			
 	};
 		
@@ -48,6 +48,20 @@ myApp.controller('forumcntrl', function($scope, $http, $location,$rootScope)
 			$location.path("/updateforum");
 		});
 	};
+	$scope.displaycomment=function(forumId)
+	{
+		console.log('into display forum');
+		console.log('into display forum'+forumId);
+		$http.get('http://localhost:8081/middleend/getforum/'+forumId)
+		.then(function(response)
+		{
+			console.log(response.data);
+			$scope.forum=response.data;
+			$rootScope.forum1=response.data;
+			console.log('Status Text:'+response.statusText);
+			$location.path("/forumcomment");
+		});
+	};
 	
 	$scope.deleteforum=function(forumId)
 	{
@@ -58,11 +72,13 @@ myApp.controller('forumcntrl', function($scope, $http, $location,$rootScope)
 			console.log(response.data);
 			 $scope.forum=response.data;
 			console.log('Status Text:'+response.statusText);
-			$location.path("/forum");
+			$location.path("/forum1");
 		});
 	};
 	
+	
 
+	
 	
 	function fetchAllForum()
 	{

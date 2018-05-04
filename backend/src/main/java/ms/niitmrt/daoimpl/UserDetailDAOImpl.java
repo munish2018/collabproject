@@ -56,6 +56,7 @@ public class UserDetailDAOImpl implements UserDetailDAO {
 	public boolean updateonlinestatus(String status, UserDetail userdetail) {
 		try
 		{
+			System.out.println(" online status :"+status);
 			userdetail.setIsonline(status);
 			sessionFactory.getCurrentSession().update(userdetail);
 			return true;

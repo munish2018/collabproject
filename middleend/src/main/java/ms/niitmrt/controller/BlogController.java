@@ -3,6 +3,8 @@ package ms.niitmrt.controller;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,24 +35,27 @@ public class BlogController {
 	// ---------------- Add Blog -----------------------------------
 
 		@PostMapping(value = "/addblog")
-		public ResponseEntity<String> addblog(@RequestBody Blog blog) {
+		public ResponseEntity<String> addblog(@RequestBody Blog blog,HttpSession session) {
 			blog.setCreatedate(new java.util.Date());
 			blog.setLikes(0);
 			blog.setStatus("A");
-			blog.setUsername("munish");
+			String username=(String)session.getAttribute("username");
+			blog.setUsername(username);
 					
 			if (blogDAO.addBlog(blog)) {
 				return new ResponseEntity<String>("Blog Added- Success", HttpStatus.OK);
 			} else {
-				return new ResponseEntity<String>("Blod insert failed", HttpStatus.NOT_FOUND);
+				return new ResponseEntity<String>("Blog insert failed", HttpStatus.NOT_FOUND);
 			}
 		}
 		
 		// -----------------list Blogs ---------------------------------
 
 		@GetMapping(value = "/listblogs")
-		public ResponseEntity<List<Blog>> listblog() {
-			List<Blog> listBlogs = blogDAO.listBlog("munish");
+		public ResponseEntity<List<Blog>> listblog(HttpSession session) {
+			String username=(String)session.getAttribute("username");
+			
+			List<Blog> listBlogs = blogDAO.listBlog(username);
 			if (listBlogs.size() != 0) {
 				return new ResponseEntity<List<Blog>>(listBlogs, HttpStatus.OK);
 			} else {
@@ -154,13 +159,14 @@ public class BlogController {
 				// ---------------- Add BlogComments -----------------------------------
 
 				@PostMapping(value = "/addblogcomment/{blogid}")
-				public ResponseEntity<String> addblogcomment(@RequestBody BlogComment blogcomment,@PathVariable("blogid") int blogid) {
+				public ResponseEntity<String> addblogcomment(@RequestBody BlogComment blogcomment,@PathVariable("blogid") int blogid,HttpSession session) {
 					blogcomment.setCommentdate(new Date());
 					//Blog blog = blogDAO.getBlog(1);
 					//String username = blog.getUsername();
 					//int blogid = blog.getBlogid();
 					//blogcomment.setBlogid(blogid);
-					blogcomment.setUsername("munish");
+					String loginname=(String)session.getAttribute("username");
+					blogcomment.setUsername(loginname);
 					blogcomment.setBlogid(blogid);
 					if (blogDAO.addBlogComment(blogcomment)) {
 						return new ResponseEntity<String>("BlogComment Added- Success", HttpStatus.OK);
@@ -172,9 +178,10 @@ public class BlogController {
 				// ---------------- Update BlogComments -----------------------------------
 
 				@PutMapping(value = "/updblogcomment/{blogid}/{commentid}")
-				public ResponseEntity<String> updateblogcomment(@RequestBody BlogComment blogcomment,@PathVariable("blogid") int blogid,@PathVariable("commentid") int commentid) {
+				public ResponseEntity<String> updateblogcomment(@RequestBody BlogComment blogcomment,@PathVariable("blogid") int blogid,@PathVariable("commentid") int commentid,HttpSession session) {
 					blogcomment.setCommentdate(new Date());
-					blogcomment.setUsername("munish");
+					String loginname=(String)session.getAttribute("username");
+					blogcomment.setUsername(loginname);
 									
 					if (blogDAO.updateBlogComment(blogcomment)) {
 						return new ResponseEntity<String>("BlogComment Updated- Success", HttpStatus.OK);

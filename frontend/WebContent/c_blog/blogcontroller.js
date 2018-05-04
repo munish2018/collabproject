@@ -24,7 +24,7 @@ myApp.controller('blogcntrl', function($scope, $http, $location,$rootScope)
 			console.log('Status Text:'+response.statusText);
 	      });	
 		fetchAllBlog();
-		$location.path("/blog");
+		$location.path("/blog1");
 	};
 	
 	$scope.updateblog=function(blogId)
@@ -34,7 +34,7 @@ myApp.controller('blogcntrl', function($scope, $http, $location,$rootScope)
 		.then(fetchAllBlog(),function(response)
      	  {
 			console.log('Status Text:'+response.statusText);
-			$location.path("/blog");
+			$location.path("/blog1");
 	      });			
 	};
 		
@@ -63,7 +63,7 @@ myApp.controller('blogcntrl', function($scope, $http, $location,$rootScope)
 			console.log('Status Text:'+response.statusText);
 		});
 		fetchAllBlog();
-		$location.path("/blog");
+		$location.path("/blog1");
 	};
 	
 	$scope.incrblog=function(blogId)
@@ -77,7 +77,7 @@ myApp.controller('blogcntrl', function($scope, $http, $location,$rootScope)
 			console.log('Status Text:'+response.statusText);
 			});
 		fetchAllBlog();
-		$location.path("/blog");
+		$location.path("/blog1");
 	};
 	
 	$scope.displaycomment=function(blogId)

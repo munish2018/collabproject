@@ -1,14 +1,27 @@
 
 <br />
 <br />
-<br />
 <h1>Blog Comment Detail</h1>
 <br />
 <br />
-<br />
-
 <div ng-controller="blogcommcntrl">
-	<form id="blogcommform" method="post">
+	<div class="list-group" >
+    <div href="#" class="list-group-item" ng-repeat="blogcomm in blogcommdata">
+      <h2 class="list-group-item-heading" style="color:#0000A0"> {{blog.blogname}}</h2>
+	  <br/>
+	  <h3 class="list-group-item-heading" style="color:#0000C0">Published by : {{user1.username}}, Date :  {{blog1.createdate}} ,  Likes: {{blog1.likes}} 
+	  </h3>
+	<hr/>
+	{{blogcomm.blogcommenttext}}
+	<hr/>
+	<br/><br/><br/>	
+	<hr/>
+	</div>
+	</div>
+<br />
+	<center><h2> New Blog Comment </h2></center>
+	<br/>
+<form id="blogcommform" method="post">
 		<table style="width: 80%" align="center">
 			<tr>
 				<td>Blog Name</td>
@@ -23,27 +36,11 @@
 					value="Insert" ng-click="insertblogcomm()" /></td>
 			</tr>
 		</table>
-	</form>
-	<br />
-	<br />
-	<br />
-	<table align="center" border="1">
-		<tr>
-			<td>Blog ID</td>
-			<td>Blog Comment ID</td>
-			<td>Blog Name</td>
-			<td>Blog Comment</td>
-			<td>Operation</td>
-		</tr>
-		<tr ng-repeat="blogcomm in blogcommdata">
-			<td>{{blogcomm.blogid}}</td>
-			<td>{{blogcomm.blogcommentid}}</td>
-			<td>{{blog1.blogname}}</td>
-			<td>{{blogcomm.blogcommenttext}}</td>
-			<td><input type="submit" value="Delete"	ng-click="deleteblogcomm(blogcomm.blogcommentid)" /> 
-				<input type="submit" value="Edit" ng-click="editblogcomm(blogcomm.blogcommentid)" /></td>
-		</tr>
-	</table>
+</form>
+<br />
+<br />
+<br />
+<br />
 
 </div>
 

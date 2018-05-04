@@ -1,5 +1,6 @@
 console.log("Into the blog comment Controller");
 
+//myApp.controller('blogcommcntrl', function($scope, $http, $location,$rootScope,$cookieStore)
 myApp.controller('blogcommcntrl', function($scope, $http, $location,$rootScope)
 	{
 	console.log("Inside  the blog comment Controller function");
@@ -47,6 +48,7 @@ myApp.controller('blogcommcntrl', function($scope, $http, $location,$rootScope)
 			console.log(response.data);
 			$scope.blogcomm=response.data;
 			$rootScope.blogcomm1=response.data;
+			//$cookieStore.put('blogcommdetails',response.data);
 			console.log('Status Text:'+response.statusText);
 			$location.path("/updateblogcomment");
 		});

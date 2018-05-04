@@ -16,10 +16,23 @@ public class ProfilePictureDAOImpl implements ProfilePictureDAO {
 	
 	@Override
 	public void save(ProfilePicture profilePicture) {
-		Session session=sessionfactory.openSession();
+		
+	  Session session=sessionfactory.openSession();
+	  session.saveOrUpdate(profilePicture);
+	  session.flush();
+	  session.close();
+		 
+		/*
+		Session session=sessionfactory.getCurrentSession();
+		Object obj=session.get(ProfilePicture.class,profilePicture.getLoginname());
+		System.out.println(obj);
+		if(obj==null){
 		session.save(profilePicture);
-		session.flush();
-		session.close();
+		}
+		else {
+			session.update(profilePicture);
+		}
+		*/
 	}
 
 	@Override

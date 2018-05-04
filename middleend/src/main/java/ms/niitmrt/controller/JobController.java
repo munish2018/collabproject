@@ -64,7 +64,7 @@ public class JobController {
 
 				@PostMapping(value = "/deletejob/{jobId}")
 				public ResponseEntity<String> deletejob(@PathVariable("jobId") int jobId) {
-					System.out.println("Delete forum withforum Id: " + jobId);
+					System.out.println("Delete job with job  Id: " + jobId);
 					Job tempjob = jobdao.getJobById(jobId);
 					
 					if (tempjob == null) {

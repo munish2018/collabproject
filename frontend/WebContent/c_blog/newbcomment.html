@@ -1,0 +1,29 @@
+<br />
+<br />
+<br />
+<h1>Add New Blog Comment</h1>
+<br />
+<br />
+<br />
+
+<div ng-controller="blogcommcntrl">
+<form id="blogcommform" method="post">
+		<table style="width: 80%" align="center">
+			<tr>
+				<td>Blog Name</td>
+				<td><input type="text" name="blogname" ng-model="blog1.blogname" /></td>
+			</tr>
+			<tr>
+				<td>Blog Comment </td>
+				<td><textarea rows="8" cols="50" ng-model="blogcomm.blogcommenttext"></textarea></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit"
+					value="Insert" ng-click="insertblogcomm()" /></td>
+			</tr>
+		</table>
+	</form>
+</div>
+
+<script src="c_blog/blogcontroller.js"></script>
+<script src="c_blog/blogcommentcontroller.js"></script>
