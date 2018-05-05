@@ -19,10 +19,14 @@
 	{{blog.blogcontent}}
 	<hr/>
 	<br/><br/><br/>	
+	<span ng-show="user1.role=='roleuser'||user1.role=='roleadmin'"> 
 	<img src="images/like.png" ng-click="incrblog(blog.blogid)" style="height:40px;width:40px;padding-right:20px" />
-	<img src="images/delete.jpg" ng-click="deleteblog(blog.blogid)" style="height:40px;width:40px;padding-right:20px"/> 
-	<img src="images/update.jpg" ng-click="editblog(blog.blogid)" style="height:40px;width:40px;padding-right:20px" />
 	<img src="images/display.png" ng-click="displaycomment(blog.blogid)" style="height:40px;width:40px;padding-right:20px"/>
+	</span>
+	<span ng-show="user1.role=='roleadmin'"><img src="images/delete.jpg" ng-click="deleteblog(blog.blogid)" style="height:40px;width:40px;padding-right:20px"/> 
+	<img src="images/update.jpg" ng-click="editblog(blog.blogid)" style="height:40px;width:40px;padding-right:20px" />
+	</span>
+	
 	<hr/>
 	</div>
 	</div>

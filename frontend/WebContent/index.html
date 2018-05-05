@@ -47,7 +47,8 @@
 				<li ng-hide="user1.role=='roleuser'||user1.role=='roleadmin'"><a href="#/login">Login</a></li>
 			</ul>
 			<div class="nav navbar-nav navbar-right" ng-show="user1.role=='roleuser'||user1.role=='roleadmin'">
-	<!-- <li ng-hide="user1==undefined"><img id=img1 src="http://localhost:8081/middleend/getImage" style="height:80px;width:100px" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --><font color="white">Welcome &nbsp;&nbsp;&nbsp;&nbsp;{{user1.username}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></li>
+	 <li ng-hide="user1==undefined"><!--<img id=img1 src="http://localhost:8081/middleend/getImage" style="height:80px;width:100px" />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+	                <font color="white">Welcome &nbsp;&nbsp;&nbsp;&nbsp;{{user1.username}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></li>
 					<form ng-controller="usercntrl"><input type="submit" value="LogOut" ng-click="logout()" class="btn btn-info"></form> 
 					
 				</div>

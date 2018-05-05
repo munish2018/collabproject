@@ -16,10 +16,14 @@
 	<hr/>
 	{{forum.forumcontent}}
 	<hr/>
-	<br/><br/><br/>	
+	<br/><br/><br/>
+	<span ng-show="user1.role=='roleadmin'">	
 	<img src="images/delete.jpg" ng-click="deleteforum(forum.forumid)" style="height:40px;width:40px;padding-right:20px"/> 
 	<img src="images/update.jpg" ng-click="editforum(forum.forumid)" style="height:40px;width:40px;padding-right:20px" />
+	</span>
+	<span ng-show="user1.role=='roleuser'||user1.role=='roleadmin'">
 	<img src="images/display.png" ng-click="displaycomment(forum.forumid)" style="height:40px;width:40px;padding-right:20px"/>
+	</span>
 	<hr/>
 	</div>
 	</div>
